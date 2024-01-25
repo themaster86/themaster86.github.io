@@ -47,7 +47,7 @@
               <div class="text-container p-3">
                 <h1><strong>{{ welcomeTexts[currentLanguage][currentSlideIndex] }}</strong></h1>
                 <br />
-                <h3>{{ descriptions[currentLanguage][currentSlideIndex] }}</h3>
+                <h2>{{ descriptions[currentLanguage][currentSlideIndex] }}</h2>
               </div>
             </div>
             <div class="col-md-6">
@@ -167,14 +167,14 @@
                     ]
                   }}</strong>
                 </h1><br>
-                <h3>
+                <h2>
                   {{
                     descriptions[currentLanguage][
                       (currentSlideIndex + 4) %
                         descriptions[currentLanguage].length
                     ]
                   }}
-                </h3>
+                </h2>
               </div>
             </div>
             <div class="col-md-6">
@@ -209,7 +209,27 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-
+    <div class="container">
+  <div class="row mt-5">
+    <div class="col-md-8">
+      <p class="italic-text">
+        {{ supportTexts[currentLanguage] }}
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 image-container"> 
+      <a href="/#/support">
+        <div class="text-overlay"></div>
+        <img
+          src="@/assets/imgsupport1.webp"
+          alt="logo JCYL"
+          style="max-width: 100%; height: auto;"
+        />
+      </a>
+    </div>
+  </div>
+</div>
     <div v-if="showBanner" class="cookie-banner">
       <p>
         {{
@@ -293,7 +313,11 @@ export default defineComponent({
         "We're at your disposal to address your enquiries and assess how our services can benefit your company. Feel free to reach out to us without any obligation, and we'd be delighted to assist you in exploring the solutions that best meet your business needs.",
       ],
     };
-
+    const supportTexts = {
+      es: "Actividad apoyada por :",     
+      en: "Activity supported by:",
+      de: "Aktivität unterstützt von:",
+    };
     const cookieBannerTexts = {
       es: "Este sitio web utiliza cookies para garantizar que obtenga la mejor experiencia en nuestro sitio web. ",
       de: "Diese Website verwendet Cookies, um sicherzustellen, dass Sie die beste Erfahrung auf unserer Website erhalten. ",
@@ -373,11 +397,45 @@ export default defineComponent({
       privacyPolicyTexts,
       acceptButtonTexts,
       isMobile,
+      supportTexts,
     };
   },
 });
 </script>
 <style scoped>
+.container {
+    position: relative;
+  }
+
+  .image-container {
+    cursor: pointer;
+    transition: filter 0.3s ease-in-out;
+  }
+
+  .image-container:hover {
+    filter: brightness(0.7); /* Ajusta el brillo para oscurecer al pasar el cursor */
+  }
+
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(44, 28, 28);
+    font-weight: bold;
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .image-container:hover .text-overlay {
+    opacity: 1; 
+  }
+
+  .italic-text {
+    /* display: none; */
+    font-style: italic;
+    font-size: 10px;
+  }
 .carousel-inner img {
   max-width: 100%;
   height: auto;
