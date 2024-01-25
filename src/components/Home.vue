@@ -47,7 +47,8 @@
               <div class="text-container p-3">
                 <h1><strong>{{ welcomeTexts[currentLanguage][currentSlideIndex] }}</strong></h1>
                 <br />
-                <h2>{{ descriptions[currentLanguage][currentSlideIndex] }}</h2>
+                <h2></h2>
+                <h3>{{ descriptions[currentLanguage][currentSlideIndex] }}</h3>
               </div>
             </div>
             <div class="col-md-6">
@@ -167,14 +168,15 @@
                     ]
                   }}</strong>
                 </h1><br>
-                <h2>
+                <h2></h2>
+                <h3>
                   {{
                     descriptions[currentLanguage][
                       (currentSlideIndex + 4) %
                         descriptions[currentLanguage].length
                     ]
                   }}
-                </h2>
+                </h3>
               </div>
             </div>
             <div class="col-md-6">
@@ -300,7 +302,7 @@ export default defineComponent({
       ],
       de: [
         "Wir sind ein Unternehmen mit Sitz in Spanien. Wir sind auf Übersetzungen vom Spanischen ins Englische und vom Deutschen ins Englische spezialisiert und können auch mit anderen Sprachkombinationen oder Arten des Dolmetschen arbeiten.",
-        "Wir bieten Übersetzungsdienstleistungen für einen weltweit tätigen großen Kundenstamm an. Wir bieten menschliche Übersetzungen, wettbewerbsfähige Preise und schnelle Durchlaufzeiten.",
+        "Wir bieten Übersetzungen für einen weltweit tätigen großen Kundenstamm an. Wir bieten menschliche Übersetzungen, wettbewerbsfähige Preise und schnelle Durchlaufzeiten.",
         "Wenn Sie in einer Sprache schreiben, die nicht Ihre Muttersprache ist, können unsere erfahrenen Korrekturleser Ihr Werk durchsehen, um sicherzustellen, dass es perfekt ist!",
         "Wir bieten Simultan- und Konsekutivdolmetschen sowie Telefondolmetschen an, das von qualifizierten Dolmetschern durchgeführt wird.",
         "Wir stehen Ihnen gerne zur Verfügung, um Ihre Fragen zu beantworten und zu analysieren, wie unsere Dienstleistungen Ihrem Unternehmen profitieren können. Nehmen Sie einfach unverbindlich Kontakt mit uns auf und gerne helfen wir Ihnen Lösungen zu sondieren, die am besten zu Ihren geschäftlichen Anforderungen passen.",
@@ -538,7 +540,8 @@ export default defineComponent({
   }
   .text-container {
     margin-top: 8px;
-    height: 460px;
+    height: auto;   
   }
+  
 }
 </style>
